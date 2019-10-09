@@ -1,1 +1,1 @@
-docker inspect --format '{{ .NetworkSettings.IPAddress}}' overlord
+docker run --detach --name overlord --restart always --publish 5000:80 nginx
