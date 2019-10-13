@@ -5,4 +5,4 @@ docker run \
 --mount type=volume,source=hatchery,destination=/var/lib/mysql \
 --env MYSQL_DATABASE=zerglings \
 --name=spawning-pool \
-mysql
+mysql:5.7
