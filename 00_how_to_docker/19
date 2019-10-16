@@ -7,21 +7,7 @@ docker run
 --detach 
 python:2-slim
 
-#docker run \
---name=Abathur \
---volume ~/:/root \
---publish 3000:3000 \
---interactive \
---tty /
---detach /
-python:2-slim
-
 docker exec -it Abathur pip install flask                                                                                                
-
-#docker-machine ssh Char 'echo "from flask import Flask\napp = Flask(__name__)\n@app.route(\"/\")\ndef hello_world():\n\treturn \"<h1>Hello, World!</h1>\"" > ~/app.py'
-
-docker exec --env FLASK_APP=/root/docker/app.py Abathur flask run --host=0.0.0.0 --port 3000
-
 
 docker-machine ssh Char 'echo "from flask import Flask                                      
 app = Flask(__name__)
@@ -30,3 +16,5 @@ app = Flask(__name__)
 @app.route(\"/\")
 def hello_world():
     return \"<h1>Hello, World!</h1>\"" > ~/app.py'
+
+docker exec --env FLASK_APP=/root/docker/app.py Abathur flask run --host=0.0.0.0 --port 3000
